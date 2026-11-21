@@ -562,10 +562,11 @@ a.case-card:hover .case-link { text-decoration-color: var(--deep); }
 }
 .press-feature:hover { background: var(--deep-2); color: rgba(255,255,255,0.86); }
 .press-feature-img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
-/* desktop: photo sits beside the headline */
+/* desktop: headline on the left, photo on the right */
 @media (min-width: 900px) {
-  .press-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }
-  .press-feature-img { aspect-ratio: auto; height: 100%; min-height: 360px; }
+  .press-feature { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+  .press-feature-body { order: 1; }
+  .press-feature-img { order: 2; aspect-ratio: auto; height: 100%; min-height: 360px; }
   .press-feature-body { justify-content: center; }
 }
 .press-feature-body {
