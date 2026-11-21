@@ -1,12 +1,15 @@
 {
-  "hosting": {
-    "public": "dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "cleanUrls": true,
-    "trailingSlash": false
-  }
+  "hosting": [
+    {
+      "target": "alirsabah",
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "cleanUrls": true,
+      "trailingSlash": false
+    }
+  ]
 }

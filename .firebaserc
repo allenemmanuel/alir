@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "alir-80c4f"
-  }
+  },
+  "targets": {
+    "alir-80c4f": {
+      "hosting": {
+        "alirsabah": [
+          "alirsabah"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
