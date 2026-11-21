@@ -561,12 +561,14 @@ a.case-card:hover .case-link { text-decoration-color: var(--deep); }
   transition: background-color var(--dur-ui) ease;
 }
 .press-feature:hover { background: var(--deep-2); color: rgba(255,255,255,0.86); }
-.press-feature-img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.press-feature-figure { margin: 0; }
+.press-feature-img { display: block; width: 100%; height: auto; }
+.press-feature-figure figcaption { padding: 0.75rem 1.25rem 1rem; font-size: 0.86rem; line-height: 1.45; color: rgba(255,255,255,0.72); }
 /* desktop: headline on the left, photo on the right */
 @media (min-width: 900px) {
   .press-feature { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
   .press-feature-body { order: 1; }
-  .press-feature-img { order: 2; aspect-ratio: auto; height: 100%; min-height: 360px; }
+  .press-feature-figure { order: 2; align-self: center; }
   .press-feature-body { justify-content: center; }
 }
 .press-feature-body {
