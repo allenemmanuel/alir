@@ -420,7 +420,7 @@ a.case-card:hover .case-link { text-decoration-color: var(--deep); }
 /* ---------- Team ---------- */
 .team { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 2rem 1.25rem; }
 .team figure { margin: 0; }
-.team img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--r-photo); background: var(--ground-2); margin-bottom: 0.7rem; }
+.team img { width: 100%; aspect-ratio: 4 / 5; object-fit: contain; border-radius: var(--r-photo); background: var(--ground-2); margin-bottom: 0.7rem; }
 .team figcaption strong { display: block; font-family: var(--font-display); font-variation-settings: "wdth" 80; font-size: 1.3rem; color: var(--deep); line-height: 1.1; }
 .team figcaption span { font-size: 0.92rem; color: var(--ink-2); }
 .team .lead-role img { outline: 4px solid var(--accent); outline-offset: -4px; }
