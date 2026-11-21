@@ -508,6 +508,10 @@ a.case-card:hover .case-link { text-decoration-color: var(--deep); }
 .lightbox {
   position: fixed; inset: 0; z-index: 200;
   display: grid; place-items: center;
+  /* one cell the size of the visible area, so a tall photo scales down instead of overflowing */
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  height: 100vh; height: 100dvh;
   padding: max(3.5rem, env(safe-area-inset-top)) 4.5rem max(3.5rem, env(safe-area-inset-bottom));
   background: rgba(30, 23, 15, 0.94);
   overscroll-behavior: contain;
@@ -516,6 +520,7 @@ a.case-card:hover .case-link { text-decoration-color: var(--deep); }
 }
 .lightbox.open { opacity: 1; visibility: visible; transition: opacity var(--dur-ui) var(--ease-out), visibility 0s; }
 .lightbox img {
+  min-width: 0; min-height: 0;
   max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: var(--r-photo);
   transform: scale(0.96); transition: transform 300ms var(--ease-out);
 }
