@@ -148,32 +148,8 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 
 .brand { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--deep); }
 .brand:hover { color: var(--deep); }
-.brand-tag {
-  position: relative;
-  width: 40px; height: 40px;
-  border-radius: 50% 50% 50% 8px;
-  background: var(--accent);
-  display: grid; place-items: center;
-  color: var(--deep);
-}
-.brand-tag svg { width: 22px; height: 22px; }
-.brand-word {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-variation-settings: "wdth" 75;
-  font-size: 1.7rem;
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-.brand-word small {
-  display: block;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 0;
-  color: var(--ink-2);
-  margin-top: 2px;
-}
+.brand-logo { display: block; height: 56px; width: auto; }
+@media (max-width: 480px) { .brand-logo { height: 48px; } }
 
 .nav-links { display: flex; align-items: center; gap: 0.15rem; list-style: none; margin: 0; padding: 0; }
 .nav-links a:not(.btn) {
@@ -577,8 +553,8 @@ a.case-card:hover .case-link { text-decoration-color: var(--deep); }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 2.5rem; }
 @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 540px) { .footer-grid { grid-template-columns: 1fr; } }
-.site-footer .brand, .site-footer .brand:hover { color: var(--paper); margin-bottom: 1rem; }
-.site-footer .brand-word small { color: rgba(255,255,255,0.6); }
+.site-footer .brand { margin-bottom: 1rem; }
+.site-footer .brand-logo { background: var(--paper); padding: 0.5rem 0.75rem; border-radius: var(--r-card); height: 64px; }
 .site-footer h2 { font-family: var(--font-body); font-variation-settings: normal; font-size: 1rem; font-weight: 700; letter-spacing: 0; color: var(--paper); margin-bottom: 0.9rem; }
 .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
 .site-footer a { color: rgba(255,255,255,0.88); text-decoration: none; }
