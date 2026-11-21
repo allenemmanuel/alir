@@ -1,0 +1,135 @@
+# Editor settings for the ALIR website (Decap CMS).
+# Each "collection" below is one kind of content the shelter can edit.
+
+backend:
+  name: github
+  repo: allenemmanuel/alir
+  branch: main
+  # One-time setup: replace this with the address of the sign-in helper (see README).
+  base_url: https://REPLACE-WITH-SIGN-IN-HELPER-URL
+  auth_endpoint: auth
+
+publish_mode: simple
+
+# Uploaded photos are saved here and shown on the site from /assets/uploads/
+media_folder: "src/assets/uploads"
+public_folder: "/assets/uploads"
+
+locale: en
+
+collections:
+
+  - name: settings
+    label: "Contact, bank and PayPal details"
+    description: "Phone numbers, email, bank account and PayPal link. Changes appear on every page."
+    files:
+      - name: settings
+        label: "Contact and donation details"
+        file: "src/content/settings.json"
+        format: json
+        fields:
+          - { label: "Urgent banner message", name: urgent_text, widget: string, hint: "Shown at the top of every page" }
+          - { label: "WhatsApp number (main)", name: whatsapp_number, widget: string, hint: "Digits only, with country code. Example: 60168420421" }
+          - { label: "WhatsApp number as shown", name: whatsapp_display, widget: string, hint: "Example: +60 16-842 0421" }
+          - { label: "Email", name: email, widget: string }
+          - { label: "Rice supplier WhatsApp", name: rice_whatsapp_number, widget: string, hint: "Digits only, with country code" }
+          - { label: "Pet food supplier WhatsApp", name: pet_food_whatsapp_number, widget: string, hint: "Digits only, with country code" }
+          - { label: "Bank name", name: bank_name, widget: string }
+          - { label: "Bank account name", name: bank_account_name, widget: string }
+          - { label: "Bank account number", name: bank_account_number, widget: string, hint: "Example: 5600 7264 4436" }
+          - { label: "PayPal link", name: paypal_url, widget: string, hint: "Example: https://paypal.me/alirsabah" }
+
+  - name: cases
+    label: "Rescue stories"
+    description: "Animals shown on the Rescues page. Add one for each new rescue."
+    folder: "src/content/cases"
+    extension: json
+    format: json
+    create: true
+    identifier_field: name
+    slug: "{{slug}}"
+    summary: "{{name}} ({{status_label}})"
+    fields:
+      - { label: "Name", name: name, widget: string }
+      - { label: "Species", name: species, widget: select, options: ["Dog", "Cat", "Puppy", "Kitten"] }
+      - label: "Status"
+        name: status
+        widget: select
+        options:
+          - { label: "Urgent", value: urgent }
+          - { label: "In treatment", value: care }
+          - { label: "Recovered / safe", value: ok }
+          - { label: "In memory", value: memory }
+      - { label: "Status wording on the card", name: status_label, widget: string, hint: "Example: In treatment" }
+      - { label: "Date rescued", name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Where found", name: found, widget: string }
+      - { label: "Condition", name: condition, widget: string }
+      - { label: "Vet bill", name: bill, widget: string, hint: "Example: RM489" }
+      - { label: "Story", name: text, widget: text }
+      - { label: "Link to full story", name: url, widget: string }
+      - { label: "Photo", name: img, widget: image }
+      - { label: "Photo description (optional)", name: alt, widget: string, required: false }
+
+  - name: gallery
+    label: "Shelter photos"
+    description: "Photos on the Shelter life page."
+    folder: "src/content/gallery"
+    extension: json
+    format: json
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
+    summary: "Shelter photo"
+    fields:
+      - { label: "Photo", name: photo, widget: image }
+
+  - name: press
+    label: "In the news"
+    description: "News articles. One article can be the featured story at the top."
+    folder: "src/content/press"
+    extension: json
+    format: json
+    create: true
+    identifier_field: title
+    slug: "{{slug}}"
+    summary: "{{outlet}}: {{title}}"
+    fields:
+      - { label: "Headline", name: title, widget: string }
+      - { label: "Newspaper or website", name: outlet, widget: string, hint: "Example: The Star" }
+      - { label: "Short description", name: description, widget: text }
+      - { label: "Link to the article", name: url, widget: string }
+      - { label: "Year (optional)", name: year, widget: string, required: false }
+      - { label: "Language", name: language, widget: select, options: ["English", "Malay"] }
+      - { label: "Order (smaller numbers first)", name: order, widget: number, value_type: int, default: 1 }
+      - { label: "Feature this article at the top?", name: featured, widget: boolean, default: false, hint: "Only one article should be featured" }
+      - { label: "Featured photo (only for the featured article)", name: image, widget: image, required: false }
+      - { label: "Photo description (for the featured photo)", name: alt, widget: string, required: false }
+      - { label: "Photo caption (for the featured photo)", name: caption, widget: text, required: false }
+
+  - name: clippings
+    label: "Press clippings"
+    description: "Screenshots and photos of news coverage, shown as a wall on the In the news page."
+    folder: "src/content/clippings"
+    extension: json
+    format: json
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
+    summary: "Press clipping"
+    fields:
+      - { label: "Clipping", name: photo, widget: image }
+
+  - name: team
+    label: "Our team"
+    description: "Committee members, volunteers and caretakers on the About page."
+    folder: "src/content/team"
+    extension: json
+    format: json
+    create: true
+    identifier_field: name
+    slug: "{{slug}}"
+    summary: "{{name}}, {{role}}"
+    fields:
+      - { label: "Name", name: name, widget: string }
+      - { label: "Role", name: role, widget: string, hint: "Example: Secretary" }
+      - { label: "Photo", name: photo, widget: image }
+      - { label: "Order (smaller numbers first)", name: order, widget: number, value_type: int, default: 99 }
+      - { label: "Show first, larger? (committee lead)", name: featured, widget: boolean, default: false }
