@@ -553,16 +553,21 @@ a.case-card:hover .case-link { text-decoration-color: var(--deep); }
 
 /* ---------- Press ---------- */
 .press-feature {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem;
-  padding: clamp(2rem, 4.5vw, 3.5rem);
+  display: flex; flex-direction: column;
+  overflow: hidden;
   background: var(--deep); color: rgba(255,255,255,0.86);
   border-radius: var(--r-card);
   text-decoration: none;
   transition: background-color var(--dur-ui) ease;
 }
 .press-feature:hover { background: var(--deep-2); color: rgba(255,255,255,0.86); }
-.press-feature h2 { color: var(--paper); font-size: clamp(2.2rem, 4.6vw, 3.6rem); max-width: 18ch; margin: 0; }
-.press-feature p { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 40ch; margin: 0; }
+.press-feature-img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.press-feature-body {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+.press-feature h2 { color: var(--paper); font-size: clamp(1.9rem, 4.6vw, 3.6rem); max-width: 18ch; margin: 0; }
+.press-feature p { color: rgba(255,255,255,0.8); font-size: 1.05rem; max-width: 40ch; margin: 0; }
 .press-feature .press-outlet { background: var(--accent); color: var(--deep); }
 .press-feature .press-more { color: var(--accent); }
 
@@ -596,7 +601,12 @@ a.case-card:hover .case-link { text-decoration-color: var(--deep); }
 .press-more { font-weight: 700; color: var(--deep); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 3px; text-underline-offset: 4px; }
 
 @media (max-width: 900px) { .press-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .press-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .press-grid { grid-template-columns: 1fr; }
+  .press-feature-body { padding: 1.25rem; }
+  .press-card { padding: 1.25rem; }
+  .press-card h3 { font-size: 1.4rem; }
+}
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--deep-2); color: rgba(255,255,255,0.72); padding: clamp(3.5rem, 7vw, 5rem) 0 calc(2rem + env(safe-area-inset-bottom)); font-size: 0.97rem; }
