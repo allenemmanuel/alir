@@ -6,7 +6,7 @@ backend:
   repo: allenemmanuel/alir
   branch: main
   # One-time setup: replace this with the address of the sign-in helper (see README).
-  base_url: https://REPLACE-WITH-SIGN-IN-HELPER-URL
+  base_url: https://alir-editor-login.allenemmanuel07.workers.dev
   auth_endpoint: auth
 
 publish_mode: simple
